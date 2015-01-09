@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>{$user.name}</title>
+    <title><![CDATA[{$user.name}]]></title>
     <slug>{$user.slug}</slug>
     <profileUrl>{$user.creator.profileUrl}</profileUrl>
     <description><![CDATA[{$user.description}]]></description>
