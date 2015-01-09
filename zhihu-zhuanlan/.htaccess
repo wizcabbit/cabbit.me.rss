@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule  ^zhihuzhuanlan/(.*)$ index.php?name=$1 [QSA]
