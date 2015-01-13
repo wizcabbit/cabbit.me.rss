@@ -1,25 +1,26 @@
 <?php
 
 require_once('smartyUtil.php');
+require_once('dataUtil.php');
 
 header('Content-Type: xml');
 
 $API = 'http://zhuanlan.zhihu.com/api/columns/';
+$URL_BASE = 'http://zhuanlan.zhihu.com';
 
 if (isset($_GET['name'])) {
   $name = $_GET['name'];
-  $user_data = file_get_contents($API . $name);
-  $post_data = file_get_contents($API . $name . '/posts?limit=10');
 
-  if (!$user_data || !$post_data) {
+  $channel = get_json($API . $name);
+  $posts = get_json($API . $name . '/posts?limit=10');
+
+  if ($channel == NULL || $posts == NULL) {
     echo('请求的专栏不存在');
     exit();
   } else {
-    $user = json_decode($user_data, true);
-    $posts = json_decode($post_data, true);
-
-    $smarty->assign('user', $user);
+    $smarty->assign('channel', $channel);
     $smarty->assign('posts', $posts);
+    $smarty->assign('URL_BASE', $URL_BASE);
 
     $smarty->display('atom.xml.tpl', $name);
   }

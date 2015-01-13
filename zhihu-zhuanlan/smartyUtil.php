@@ -5,7 +5,7 @@ require_once('smarty/Smarty.class.php');
 
 $smarty = new Smarty;
 $smarty->debugging = false;
-$smarty->caching = true;
+$smarty->caching = false;
 
 // Initialize smarty directory configurations
 $smarty->template_dir = './';
