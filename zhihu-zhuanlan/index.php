@@ -28,5 +28,3 @@ if (isset($_GET['name'])) {
   echo('请求的专栏不存在');
   exit();
 }
-
-
