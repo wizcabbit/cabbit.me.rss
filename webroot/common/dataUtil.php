@@ -9,7 +9,6 @@ function get_json($url)
     $raw_data = file_get_contents($url);
     $raw_content = gzdecode($raw_data);
 
-    // gzip解压失败后，直接使用结果
     if (!$raw_content) {
       $raw_content = $raw_data;
     }

@@ -1,3 +1,8 @@
+rewrite:
+  - url: ^/zhihu/zhuanlan/(.*)$
+    script: /zhihu-zhuanlan/index.php?name=$1
+    checkfile: false
+
 tryuri:
   - path: /
     script: /index.php
@@ -6,11 +11,6 @@ ossprefix:
   - /ace/app/
 
 error_page:
-    - status: 504 505
-      page: /50x.html
+  - status: 504 505
+    page: /50x.html
 
-# 这里对应的 nginx 规则为: rewrite ^/1.jpg$ /hello.php last;
-rewrite:
-- url: ^/zhihu/zhuanlan/(.*)$
-  script: /zhihu-zhuanlan/index.php?name=$1
-  checkfile: false
